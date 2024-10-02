@@ -199,6 +199,9 @@ struct gpujpeg_parameters
     /// - encoding: Set by user
     /// - decoding: Set by gpujpeg
     enum gpujpeg_color_space color_space_internal;
+
+    /// Use mapped memory which does not require explicit cudaMemcpy calls.
+    int use_mapped_memory;
 };
 
 /**

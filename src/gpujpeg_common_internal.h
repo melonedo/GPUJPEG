@@ -348,6 +348,8 @@ struct gpujpeg_coder
     uint8_t* d_temp_huffman;
     /// Allocated size
     size_t data_compressed_allocated_size;
+    /// Use mapped memory
+    int use_mapped_memory;
 
     int cuda_cc_major; ///< CUDA Compute capability (major version)
     int cuda_cc_minor; ///< CUDA Compute capability (minor version)

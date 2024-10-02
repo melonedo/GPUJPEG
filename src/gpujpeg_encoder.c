@@ -505,11 +505,11 @@ gpujpeg_encoder_encode(struct gpujpeg_encoder* encoder, const struct gpujpeg_par
         GPUJPEG_CUSTOM_TIMER_START(coder->duration_memory_from, coder->param.perf_stats, encoder->stream, return -1);
 
         // Copy compressed data from device memory to cpu memory
-        if ( cudaSuccess != cudaMemcpyAsync(coder->data_compressed, coder->d_data_compressed, output_size, cudaMemcpyDeviceToHost, encoder->stream) ) {
+        if ( !coder->use_mapped_memory && cudaSuccess != cudaMemcpyAsync(coder->data_compressed, coder->d_data_compressed, output_size, cudaMemcpyDeviceToHost, encoder->stream) ) {
             return -1;
         }
         // Copy segments from device memory
-        if ( cudaSuccess != cudaMemcpyAsync(coder->segment, coder->d_segment, coder->segment_count * sizeof(struct gpujpeg_segment), cudaMemcpyDeviceToHost, encoder->stream) ) {
+        if ( !coder->use_mapped_memory && cudaSuccess != cudaMemcpyAsync(coder->segment, coder->d_segment, coder->segment_count * sizeof(struct gpujpeg_segment), cudaMemcpyDeviceToHost, encoder->stream) ) {
             return -1;
         }
 
