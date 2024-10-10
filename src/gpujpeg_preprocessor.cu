@@ -236,6 +236,7 @@ gpujpeg_preprocessor_select_encode_kernel(struct gpujpeg_coder* coder)
             case GPUJPEG_422_U8_P0P1P2: return &gpujpeg_preprocessor_raw_to_comp_kernel<color_space_internal, COLOR, GPUJPEG_422_U8_P0P1P2, P1, P2, P3, P4, P5, P6, P7, P8>; \
             case GPUJPEG_420_U8_P0P1P2: return &gpujpeg_preprocessor_raw_to_comp_kernel<color_space_internal, COLOR, GPUJPEG_420_U8_P0P1P2, P1, P2, P3, P4, P5, P6, P7, P8>; \
             case GPUJPEG_U8: return &gpujpeg_preprocessor_raw_to_comp_kernel<color_space_internal, COLOR, GPUJPEG_U8, P1, P2, P3, P4, P5, P6, P7, P8>; \
+            case GPUJPEG_4444_U8_P0P1P2P3: \
             case GPUJPEG_PIXFMT_NONE: GPUJPEG_ASSERT(0 && "Preprocess from GPUJPEG_PIXFMT_NONE not allowed" ); \
         }
 
@@ -435,7 +436,7 @@ static int
 gpujpeg_preprocessor_encoder_copy_planar_data(struct gpujpeg_encoder * encoder)
 {
     struct gpujpeg_coder * coder = &encoder->coder;
-    assert(coder->param.comp_count == 1 || coder->param.comp_count == 3);
+    // assert(coder->param.comp_count == 1 || coder->param.comp_count == 3);
 
     size_t data_raw_offset = 0;
     bool needs_stride = false; // true if width is not divisible by MCU width

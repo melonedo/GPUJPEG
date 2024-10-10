@@ -294,7 +294,7 @@ adjust_params(struct gpujpeg_coder* coder, const struct gpujpeg_parameters* para
         if ( img_changed ) {
 
             param_adjusted.comp_count =
-                MIN(gpujpeg_pixel_format_get_comp_count(param_image->pixel_format), GPUJPEG_3_COMPONENTS);
+                MIN(gpujpeg_pixel_format_get_comp_count(param_image->pixel_format), GPUJPEG_4_COMPONENTS);
             memcpy(param_adjusted.sampling_factor, gpujpeg_pixel_format_get_sampling_factor(param_image->pixel_format),
                    sizeof param_adjusted.sampling_factor);
         }

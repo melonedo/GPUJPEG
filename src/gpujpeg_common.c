@@ -109,17 +109,18 @@ static const struct {
     /// native sampling factor for the pixfmt
     struct gpujpeg_component_sampling_factor sampling_factor[GPUJPEG_MAX_COMPONENT_COUNT];
 } gpujpeg_pixel_format_desc[] = {
-    {GPUJPEG_PIXFMT_STD,        0,      0, 0, "(file standard)", {{0}}                           },
-    {GPUJPEG_PIXFMT_NO_ALPHA,   0,      0, 0, "(without alpha)", {{0}}                           },
-    {GPUJPEG_PIXFMT_AUTODETECT, 0,      0, 0, "(autodetect)",    {{0}}                           },
-    {GPUJPEG_PIXFMT_NONE,       0,      0, 0, "(unknown)",       {{0}}                           },
-    {GPUJPEG_U8,                0,      1, 1, "u8",              {{1, 1}}                        },
-    {GPUJPEG_444_U8_P012,       0,      3, 3, "444-u8-p012",     {{1, 1}, {1, 1}, {1, 1}}        },
-    {GPUJPEG_444_U8_P0P1P2,     PLANAR, 3, 0, "444-u8-p0p1p2",   {{1, 1}, {1, 1}, {1, 1}}        },
-    {GPUJPEG_422_U8_P1020,      0,      3, 2, "422-u8-p1020",    {{2, 1}, {1, 1}, {1, 1}}        },
-    {GPUJPEG_422_U8_P0P1P2,     PLANAR, 3, 0, "422-u8-p0p1p2",   {{2, 1}, {1, 1}, {1, 1}}        },
-    {GPUJPEG_420_U8_P0P1P2,     PLANAR, 3, 0, "420-u8-p0p1p2",   {{2, 2}, {1, 1}, {1, 1}}        },
-    {GPUJPEG_4444_U8_P0123,     0,      4, 4, "4444-u8-p0123",   {{1, 1}, {1, 1}, {1, 1}, {1, 1}}},
+    {GPUJPEG_PIXFMT_STD,        0,      0, 0, "(file standard)",  {{0}}                           },
+    {GPUJPEG_PIXFMT_NO_ALPHA,   0,      0, 0, "(without alpha)",  {{0}}                           },
+    {GPUJPEG_PIXFMT_AUTODETECT, 0,      0, 0, "(autodetect)",     {{0}}                           },
+    {GPUJPEG_PIXFMT_NONE,       0,      0, 0, "(unknown)",        {{0}}                           },
+    {GPUJPEG_U8,                0,      1, 1, "u8",               {{1, 1}}                        },
+    {GPUJPEG_444_U8_P012,       0,      3, 3, "444-u8-p012",      {{1, 1}, {1, 1}, {1, 1}}        },
+    {GPUJPEG_444_U8_P0P1P2,     PLANAR, 3, 0, "444-u8-p0p1p2",    {{1, 1}, {1, 1}, {1, 1}}        },
+    {GPUJPEG_422_U8_P1020,      0,      3, 2, "422-u8-p1020",     {{2, 1}, {1, 1}, {1, 1}}        },
+    {GPUJPEG_422_U8_P0P1P2,     PLANAR, 3, 0, "422-u8-p0p1p2",    {{2, 1}, {1, 1}, {1, 1}}        },
+    {GPUJPEG_420_U8_P0P1P2,     PLANAR, 3, 0, "420-u8-p0p1p2",    {{2, 2}, {1, 1}, {1, 1}}        },
+    {GPUJPEG_4444_U8_P0123,     0,      4, 4, "4444-u8-p0123",    {{1, 1}, {1, 1}, {1, 1}, {1, 1}}},
+    {GPUJPEG_4444_U8_P0P1P2P3,  PLANAR, 4, 4, "4444-u8-p0p1p2p3", {{1, 1}, {1, 1}, {1, 1}, {1, 1}}},
 };
 
 /* Documented at declaration */
